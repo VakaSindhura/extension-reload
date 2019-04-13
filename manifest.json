@@ -1,13 +1,23 @@
 {
-  "name": "Getting Started to build an extensiom",
+  "name": "Reloads current tab and extension page",
   "version": "1.0",
   "manifest_version" : 2,
-  "description": "Does some simple stuff",
+  "description": "Reload Reload yayyy!",
+  "author": "Sindhura Vaka",
   "background" : {
-    "scripts" : ["background.js"]
+    "scripts" : ["background.js"],
+    "persistent": false
   },
   "browser_action": {
     "default_icon": "images/somebullshit.png"
+    // "default_popup": "index.html" // comment this
   },
-  "permissions": ["activeTab", "notifications"]
+  "permissions": [
+    "declarativeContent", "activeTab", "notifications", "contextMenus"
+  ]
+  // "content_scripts": [
+  //   {
+  //     "matches": ["http://111.93.27.187:8889/*"]
+  //   }
+  // ]
 }
