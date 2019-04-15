@@ -1,13 +1,3 @@
-chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-  chrome.declarativeContent.onPageChanged.addRules([{
-    conditions: [new chrome.declarativeContent.PageStateMatcher({
-      pageUrl: {hostEquals: 'http://111.93.27.187:8889'},
-    })
-    ],
-        actions: [new chrome.declarativeContent.ShowPageAction()]
-  }]);
-});
-
 chrome.contextMenus.create({
   id: "Roload Reload",
   title: "Reload Extension",
@@ -15,6 +5,22 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.onClicked.addListener(function sendfunc(tab) {
+
+  chrome.management.getAll(function(a){
+    var ext ={};
+    console.log('extensions are', a);
+
+    for(var i=0;i<=a.length;i++){
+      ext=a[i];
+      if((ext.enabled === true) && (ext.installType === "development") 
+          && (ext.name!=="Reloads current tab and extension page")) {
+        console.log('If', ext.name);
+        chrome.management.setEnabled(ext.id, false);
+        chrome.management.setEnabled(ext.id, true);
+      }
+    }
+  });
+  
   chrome.tabs.query({
     active: true,
     currentWindow: true
@@ -22,9 +28,6 @@ chrome.contextMenus.onClicked.addListener(function sendfunc(tab) {
     chrome.tabs.reload(tabs[0].id);
   });
 
-  chrome.tabs.query({url: "chrome://extensions/"}, function(tab) {
-    chrome.tabs.reload(tab[0].id);
-  }); 
 });
 
 // const socket = new WebSocket('ws://localhost:3000/');
