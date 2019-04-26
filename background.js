@@ -6,15 +6,13 @@ chrome.contextMenus.create({
 
 chrome.contextMenus.onClicked.addListener(function sendfunc(tab) {
 
-  chrome.management.getAll(function(a){
-    var ext ={};
-    console.log('extensions are', a);
+  chrome.management.getAll(function (a) {
+    var ext = {};
 
-    for(var i=1;i<=a.length;i++){
-      ext=a[i];
-      if(ext.enabled && (ext.installType === "development") 
-          && (ext.name!=="Reloads current tab and custom extensions")) {
-        console.log('If', ext.name);
+    for (var i = 0; i <= a.length - 1; i++) {
+      ext = a[i];
+      if (ext.enabled && (ext.installType === "development")
+        && !(ext.description && ext.description.includes("Reloads Active"))) {
         chrome.management.setEnabled(ext.id, false);
         chrome.management.setEnabled(ext.id, true);
       }
@@ -25,10 +23,9 @@ chrome.contextMenus.onClicked.addListener(function sendfunc(tab) {
     active: true,
     currentWindow: true
   }, (tabs) => {
-    if(tabs.length) {
+    if (tabs.length) {
       chrome.tabs.reload(tabs[0].id);
     }
   });
 
 });
-

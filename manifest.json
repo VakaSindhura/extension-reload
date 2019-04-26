@@ -1,8 +1,8 @@
 {
-  "name": "Reloads current tab and extension page",
+  "name": "Reload",
   "version": "1.0",
   "manifest_version" : 2,
-  "description": "Reload Reload yayyy!",
+  "description": "Reloads Active tab and downloaded extensions",
   "author": "Sindhura Vaka",
   "background" : {
     "scripts" : ["background.js"],
