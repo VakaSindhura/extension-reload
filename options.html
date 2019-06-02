@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div id="buttonDiv"></div>
+    <div id="TopBar">
+      <div class="heading-content">
+        <img id = "image" src = "./images/G12-Important-icon.png " ></img>
+        <p id="heading">Please select the Extensions to reload</p>
+      </div>
+      <hr/>
+    </div>
+    <form>
+      <div class="getExtensionsData"></div>
+    </form>
+    <button id="update" onclick="Update()">Save</button>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Please select Extensions from the given list</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="options.js"></script>
+</html>
