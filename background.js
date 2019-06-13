@@ -56,7 +56,7 @@ chrome.runtime.onInstalled.addListener(function (details) {
   }
 });
 
-// chrome.runtime.setUninstallURL('https://google.com');
+chrome.runtime.setUninstallURL('https://feedback.html');
 
 function checkForExtension(currExtensionDetails, extensions) {
   return extensions.find(e => e.id === currExtensionDetails.id);
