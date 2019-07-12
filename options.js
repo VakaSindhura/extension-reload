@@ -28,7 +28,7 @@ chrome.management.getAll(function (a) {
 });
 
 function returnTag(item, shouldCheck) {
-  return `<div id="adjust"><input type="checkbox" id="${item.id}" name="LOADED_EXTENSIONS" value='${item.name}' ${shouldCheck ? 'checked' : ''}>${item.name}</input><br></br></div>`;
+  return `<div class="adjust"><input type="checkbox" id="${item.id}" name="LOADED_EXTENSIONS" value='${item.name}' ${shouldCheck ? 'checked' : ''}><p>${item.name}</p></input></div>`;
 }
 
 document.getElementById('update').onclick = function () {

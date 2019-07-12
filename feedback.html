@@ -1,11 +1,54 @@
-<html>
+<!-- <html>
   <head>
+    <link rel="stylesheet" href="options.css" />
     <title>Feedback Page</title>
   </head>
   <body>
-      <div class = "heading">Extensions reload</div>
-      <p>Please take a moment to tell us why you are uninstalling the extension so that we can improvise it based on your comments</p>
-      <textarea name="commentBox" id="commentBox" cols="30" rows="10"></textarea>
+    <div id="TopBar">
+      <div id="heading-content">Extensions reload</div>
+      <hr />
+    </div>
+    <div class="bodyPage">
+      <p id = "">
+        Please take a moment to tell us why you are uninstalling the extension
+        so that we can improvise it based on your comments
+      </p>
+      <textarea
+        name="commentBox"
+        id="commentBox"
+        cols="30"
+        rows="10"
+      ></textarea>
       <button>Post</button>
+    </div>
+  </body>
+</html> -->
+
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="topBar">
+      <p class="heading">Reload Extension</p>
+    </div>
+    <div class="uninstall">
+      <div class="FeedbackList">
+        <p class="message">
+          We are sad that you had to uninstall the extension
+        </p>
+        <h3 class="message2">Please help us Improve</h3>
+      </div>
+      <section>
+        <div></div>
+        <div><textarea class="feedback-text" placeholder= "Type something..."></textarea></div>
+        <div><button class="update feedback">Submit</button></div>
+      </section>
+    </div>
+    <script src="feedback.js"></script>
   </body>
 </html>
