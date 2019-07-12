@@ -5,7 +5,7 @@
   "description": "Reloads Active tab and downloaded extensions",
   "author": "Sindhura Vaka",
   "background" : {
-    "scripts" : ["background.js", "options.js"],
+    "scripts" : ["background.js"],
     "persistent": false
   },
   "browser_action": {
@@ -17,9 +17,12 @@
     "64": "images/reload-64.png",
     "128": "images/reload-128.png"
   },
-  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
   "permissions": [
-    "declarativeContent", "activeTab", "notifications", "contextMenus", "tabs", "management", "storage"
+    "activeTab", "notifications", "contextMenus", "tabs", "management", "storage"
   ],
   "commands": {
     "reload_extensions": {
