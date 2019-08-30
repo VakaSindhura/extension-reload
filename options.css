@@ -1,157 +1,3 @@
-/* html {
-  height: 100%;
-}
-
-body {
-background-color: #b8c6db;
-background-image: linear-gradient(-32deg, #b8c6db 20%, #f5f7fa 138%);
-}
-
-#TopBar {
-    right: 500px;
-    font-size: medium;
-    font-weight: 500;
-    letter-spacing:2px;
-    color:black;
-    height: 75px
-}
- #TopBar hr {
-     border-color: burlywood;
- }
- #heading {
-    position: relative;
-    margin-left: 20px;
- }
-
- .heading-content {
-   display: inline-flex;
- }
- input[type="checkbox"]:checked + label::after{
-    position: absolute;
-    width: 1.2ex;
-    height: 0.4ex;
-    background: rgba(0, 0, 0, 0);
-    top: 0.9ex;
-    left: 0.4ex;
-    border: 3px solid blue;
-} 
-input[type="checkbox"] {
-    vertical-align: middle;
-    position: relative;
-    bottom: 1px;
-    width: 15px; 
-    height: 15px; 
-}
-#adjust {
-    height: 20px;
-    left: 100px;
-    padding-left: inherit;
-}
-    
-#update {
-    position: absolute;
-    left: 100px;
-    width: 70px;
-    height: 25px;
-    background-color: #db9d3f;
-    border: none;
-    color: white;
-    text-align: center;
-    transition: 0.3s;
-    cursor: pointer;  
-    border-radius: 25px;  
-}
-
-#update:hover {opacity: 1}
-
-#update:focus {
-    outline: none;
-}
-
-#image {
-  height: 45px;
-  width: 45px;
-  padding-left: 20px;
-}
-
-.modal {
-  display: none; /* Hidden by default */
-  /* position: fixed; 
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(228, 157, 90);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-Modal content .modal-content {
-  position: relative;
-  background-color: #d3cbcb;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 25%;
-  height: 20%;
-  box-shadow: 0 4px 8px 0 rgba(214, 161, 101, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-  border-radius: 5px;
-}
-
-@-webkit-keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
-.close {
-      position: absolute;
-      left: 175px;
-      top: 65px;
-      width: 45px;
-      height: 25px;
-      background-color: rgb(241, 230, 220);
-      border: none;
-      color: black;
-      text-align: center;
-      cursor: pointer;
-      border-radius: 25px 
-  }
-  
-  .close:hover,
-  .close:focus {
-    background-color: #db9d3f;
-    cursor: pointer;
-  }
-
-  .modal-body {padding: 16px 16px;}
-
-  div.bodyPage {
-    position: absolute;
-    left: 100px;
-  }  */ 
- 
 html,
 body {
   padding: 0;
@@ -202,6 +48,7 @@ div {
   align-items: center;
   display: inline-flex;
   width: 210px;
+  font-size: 15px;
 }
 
 .head {
@@ -214,7 +61,7 @@ div {
 }
 
 .ListHeading {
-  font-size: 15px;
+  font-size: 20px;
   /* color: #cf8719; */
   position: absolute;
   left: 35%;
@@ -222,34 +69,62 @@ div {
   top: 10%;
 }
 
-.update :hover {
+.warning {
+text-align: center;
+color: red;
+background-color: #aee6f6;
+height: 18px;
+font-size: 15px;
+}
+
+/* #update :hover {
   opacity: 1;
 }
 
-.update:focus {
+#update:focus {
   outline: none;
+} */
+
+#update:active {
+  background-color: #ac7626;
 }
 
-.update {
+#update {
   position: absolute;
   left: 45%;
   width: 70px;
-  height: 30px;
-  background-color: #db9d3f;
-  border: none;
+  height: 35px;
+  background-color: #d8993b;
+  border: #d18a1e;
   color: white;
-  text-align: center;
-  transition: 0.3s;
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 .feedback {
-  height: 30px;
+  height: 33px;
   width: 70px;
   bottom: 15%;
   left: 47%;
+  position: absolute;
+  background-color: #d8993b;
+  border: #d18a1e;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
 }
+
+.feedback:active {
+  background-color: #ac7626;
+}
+
+.info {
+color: black
+}
+
+
 
 .message {
   position: absolute;
@@ -282,3 +157,4 @@ div {
 .feedback-text:active,:focus {
   outline: none;
 }
+

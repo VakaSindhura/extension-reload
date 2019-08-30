@@ -12,13 +12,13 @@ function reloadAll() {
     var isCurrentExtensionStored = false;
     for (var i = 0; i <= a.length - 1; i++) {
       ext = a[i];
-      const {name, id} = ext;
-      isCurrentExtensionStored = checkForExtension({id,name}, StoredExtensions);
+      const { name, id } = ext;
+      isCurrentExtensionStored = checkForExtension({ id, name }, StoredExtensions);
       if (
-        isCurrentExtensionStored &&   
+        isCurrentExtensionStored &&
         !(ext.description && ext.description.includes("Reloads Active")) &&
         (!ext.isApp)
-        ) {
+      ) {
         chrome.management.setEnabled(ext.id, false);
         chrome.management.setEnabled(ext.id, true);
       }
@@ -36,6 +36,11 @@ function reloadAll() {
   });
 }
 
+function checkForExtension(currExtensionDetails, extensions) {
+  return extensions.find(e => e.id === currExtensionDetails.id);
+}
+
+
 //If want in right click of context menu, use contextMenus in place of browerAction
 chrome.browserAction.onClicked.addListener(function sendfunc(tab) {
   reloadAll()
@@ -48,6 +53,7 @@ chrome.commands.onCommand.addListener(function (command) {
   }
 });
 
+//on installation, options.html will be opened
 chrome.runtime.onInstalled.addListener(function (details) {
   if (details.reason == "install") {
     chrome.tabs.create({ url: "options.html" });
@@ -56,8 +62,26 @@ chrome.runtime.onInstalled.addListener(function (details) {
   }
 });
 
-chrome.runtime.setUninstallURL('https://reload-extension.herokuapp.com/');
+//feedback page on uninstall
+chrome.runtime.setUninstallURL('https://dev-extension-reload.herokuapp.com/');
 
-function checkForExtension(currExtensionDetails, extensions) {
-  return extensions.find(e => e.id === currExtensionDetails.id);
+
+let data = null;
+
+function listenToBackgroundMessages() {
+  chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+      console.log('RequestTYPE', request.type);
+      console.log('!3');
+      if (request.type === 'save') {
+        data = request.data
+      } else if (request.type === 'get') {
+        console.log(' sendResponse(data)', data);
+        sendResponse(data);
+      }
+      return true;
+    }
+  );
 }
+
+listenToBackgroundMessages();
