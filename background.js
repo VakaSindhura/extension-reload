@@ -57,13 +57,14 @@ chrome.commands.onCommand.addListener(function (command) {
 chrome.runtime.onInstalled.addListener(function (details) {
   if (details.reason == "install") {
     chrome.tabs.create({ url: "options.html" });
-  } else if (details.reason == "update") {
-    console.log('updated');
-  }
+  } 
+  // else if (details.reason == "update") {
+  //   console.log('updated');
+  // }
 });
 
 //feedback page on uninstall
-chrome.runtime.setUninstallURL('https://dev-extension-reload.herokuapp.com/');
+chrome.runtime.setUninstallURL('https://reload-extension-prod.herokuapp.com/');
 
 
 let data = null;
@@ -71,12 +72,9 @@ let data = null;
 function listenToBackgroundMessages() {
   chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-      console.log('RequestTYPE', request.type);
-      console.log('!3');
       if (request.type === 'save') {
         data = request.data
       } else if (request.type === 'get') {
-        console.log(' sendResponse(data)', data);
         sendResponse(data);
       }
       return true;
