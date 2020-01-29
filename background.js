@@ -9,6 +9,7 @@ function reloadAll() {
   chrome.management.getAll(function reload(a) {
     var StoredExtensions = JSON.parse(localStorage.getItem('storedExtensions'));
     var ext = {};
+    
     var isCurrentExtensionStored = false;
     for (var i = 0; i <= a.length - 1; i++) {
       ext = a[i];
@@ -17,8 +18,8 @@ function reloadAll() {
       if (
         isCurrentExtensionStored &&
         !(ext.description && ext.description.includes("Reloads Active")) &&
-        (!ext.isApp)
-      ) {
+        (!ext.isApp) && (ext.enabled === true)
+        ) {
         chrome.management.setEnabled(ext.id, false);
         chrome.management.setEnabled(ext.id, true);
       }

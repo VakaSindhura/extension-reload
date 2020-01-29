@@ -7,7 +7,7 @@ chrome.management.getAll(function (a) {
     ext = a[i];
 
     if (!(ext.description && ext.description.includes("Reloads Active")) &&
-      (!ext.isApp)) {
+      (!ext.isApp)&& (ext.enabled === true)) {
       // array created to store all the names of extension list
       extensionProp[i] = {
         name: a[i].name,
