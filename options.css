@@ -18,17 +18,6 @@ div {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.uninstall {
-  position: absolute;
-  top: 20%;
-  left: 3.5%;
-  right: 3.5%;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);;
-  background-color: #ffffff;
-  border-radius: 2px;
-  bottom: 30px;
-}
-
 .heading {
   position: absolute;
   /* top: 0%; */
@@ -39,8 +28,20 @@ div {
 }
 
 .ExtensionList {
-  position: absolute;
-  top: 25%;
+  background: white;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.getExtensionsData~div {
+  display: flex;
+  justify-content: center;
+}
+
+.getExtensionsData>ul {
+height: 60vh;
+overflow: auto;
 }
 
 .adjust {
@@ -62,11 +63,10 @@ div {
 
 .ListHeading {
   font-size: 20px;
-  /* color: #cf8719; */
-  position: absolute;
-  left: 35%;
-  font-weight: 500;
-  top: 10%;
+  font-weight: 900;
+  color: #d18a1e;
+  display: flex;
+  justify-content: center;
 }
 
 .warning {
@@ -90,8 +90,6 @@ font-size: 15px;
 }
 
 #update {
-  position: absolute;
-  left: 45%;
   width: 70px;
   height: 35px;
   background-color: #d8993b;
